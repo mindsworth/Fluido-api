@@ -1,0 +1,8 @@
+{
+  "name": "GraphQL-BookApp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:mindsworth/GraphQL-BookApp.git",
+  "author": "Prince Goziem <princegoziem@gmail.com>",
+  "license": "MIT"
+}
