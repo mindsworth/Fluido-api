@@ -1,8 +1,29 @@
 {
-  "name": "GraphQL-BookApp",
+  "name": "graphql-bookapp",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com:mindsworth/GraphQL-BookApp.git",
   "author": "Prince Goziem <princegoziem@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start:dev": "nodemon --exec babel-node server/index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-syntax-object-rest-spread": "^7.2.0",
+    "babel-preset-env": "^1.7.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.1.1",
+    "graphql-tools": "^4.0.4",
+    "merge-graphql-schemas": "^1.5.8",
+    "mongoose": "^5.4.19"
+  }
 }
