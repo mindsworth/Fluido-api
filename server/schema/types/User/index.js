@@ -6,7 +6,7 @@ export default `
   }
 
   type Query {
-    user(id: String): User
+    user(_id: String): User
   }
 
   type Mutation {
