@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: ../../
+      dockerfile: docker/dev/Dockerfile
+    links:
+      - mongodb
+    volumes:
+      - /usr/app/node_modules
+      - ../../:/usr/app/
+    ports:
+      - '4000:4000'
+    environment:
+      PORT: 4000
+      DATABASE_URL: mongodb://chigoziem:click@mongodb/admin
+    entrypoint:
+      - /usr/app/docker/dev/entrypoint.sh
+    command:
+      - yarn
+      - start:dev
+    depends_on:
+      - 'mongodb'
+
+  mongodb:
+    image: mongo
+    expose:
+      - '27017'
+    ports:
+      - '27017:27017'
+    volumes:
+      - fluido_data:/var/lib/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: chigoziem
+      MONGO_INITDB_ROOT_PASSWORD: click
+      MONGO_INITDB_DATABASE: admin
+
+volumes:
+  fluido_data:
+    external: true

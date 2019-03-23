@@ -1,3 +1,4 @@
+require('dotenv').config();
 import express from 'express';
 import expressGraphQL from 'express-graphql';
 import mongoose from 'mongoose';
@@ -7,7 +8,7 @@ import schema from './schema/';
 
 const app = express();
 const PORT = process.env.PORT || '4000';
-const db = 'mongodb://Chigoziem:chigodwin123@ds121026.mlab.com:21026/fluido-db';
+const db = process.env.DATABASE_URL;
 
 mongoose
   .connect(db, { useCreateIndex: true, useNewUrlParser: true })
@@ -22,5 +23,5 @@ app.use(
 );
 
 app.listen(PORT, () => {
-  console.log(`Listening for resquest on port ${PORT}`);
+  console.log(`Listening for here resquest on port ${PORT}`);
 });
