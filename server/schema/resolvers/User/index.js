@@ -7,7 +7,7 @@ export default {
       User.findOne(args)
         .then(response => console.log('Response=======>', response))
         .catch(err => console.log('Error=======>', err));
-    },
+    }
   },
 
   Mutation: {
@@ -15,6 +15,6 @@ export default {
       const newUser = new User({ _id, name, email });
 
       return newUser.save();
-    },
-  },
+    }
+  }
 };

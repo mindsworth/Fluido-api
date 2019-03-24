@@ -1,10 +1,12 @@
-require('dotenv').config();
+import bodyParser from 'body-parser';
+import cors from 'cors';
+import dotenv from 'dotenv';
 import express from 'express';
 import expressGraphQL from 'express-graphql';
 import mongoose from 'mongoose';
-import cors from 'cors';
-import bodyParser from 'body-parser';
-import schema from './schema/';
+import schema from './schema';
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || '4000';
@@ -15,12 +17,7 @@ mongoose
   .then(() => console.log('MongoDB connected!'))
   .catch(error => console.log(error));
 
-app.use(
-  '/graphql',
-  cors(),
-  bodyParser.json(),
-  expressGraphQL({ schema, graphiql: true })
-);
+app.use('/graphql', cors(), bodyParser.json(), expressGraphQL({ schema, graphiql: true }));
 
 app.listen(PORT, () => {
   console.log(`Listening for here resquest on port ${PORT}`);
