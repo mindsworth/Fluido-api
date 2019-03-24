@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 // Create a user schema.
 
@@ -12,12 +12,12 @@ const UserSchema = new Schema({
   },
   name: {
     type: String,
-    required: true,
+    required: true
   },
   email: {
     type: String,
-    required: true,
-  },
+    required: true
+  }
 });
 
 const User = mongoose.model('user', UserSchema);
